@@ -36,6 +36,7 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 
 # Project 2:
 androidx-espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espressoContrib"}
+androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "espressoCore" }
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 androidx-fragment-ktx =  { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
 androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel", version.ref = "viewmodel" }

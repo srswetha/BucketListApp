@@ -76,6 +76,7 @@ dependencies {
     androidTestImplementation(libs.androidx.test.runner)
     androidTestUtil(libs.androidx.orchestrator)
     androidTestImplementation(libs.androidx.navigation.testing)
+    androidTestImplementation(libs.androidx.espresso.intents)
 
 /*
     NOTE: The following two dependencies are required for the first section of
