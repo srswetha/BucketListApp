@@ -1,36 +1,37 @@
 package edu.vt.cs5254.bucketlist
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import java.util.UUID
 
 class GoalListViewModel : ViewModel() {
 
-    val goals = mutableListOf<Goal>()
+    private val repository = GoalRepository.get()
+
+    private val _goals = MutableStateFlow<List<Goal>>(emptyList())
+    val goals get() = _goals.asStateFlow()
+
+    suspend fun addGoal(goal: Goal){
+        repository.addGoal(goal)
+    }
+    fun deleteGoal(goal: Goal){
+        viewModelScope.launch {
+            repository.deleteGoal(goal)
+        }
+    }
 
     init {
-        (0..99).forEach {
-            val goal = Goal(
-                title = "Goal #$it",
-            )
-            repeat(it % 4) { noteNum ->
-                goal.notes += GoalNote(
-                    type = GoalNoteType.PROGRESS,
-                    text = "Progress $noteNum",
-                    goalId = goal.id
-                )
+        viewModelScope.launch {
+            repository.getGoals().collect{
+                _goals.value = it
             }
-            if (it % 3 == 1) {
-                goal.notes += GoalNote(
-                    type = GoalNoteType.PAUSED,
-                    goalId = goal.id
-                )
-            }
-            if (it % 3 == 2) {
-                goal.notes += GoalNote(
-                    type = GoalNoteType.COMPLETED,
-                    goalId = goal.id
-                )
-            }
-            goals += goal
         }
+
     }
 }

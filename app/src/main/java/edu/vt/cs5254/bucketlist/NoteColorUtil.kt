@@ -23,3 +23,4 @@ fun Button.setBackgroundWithContrastingText(backgroundColor: String) {
     val contrast = ColorUtils.calculateContrast(Color.WHITE, bgColor)
     setTextColor(if (contrast > 4.5) Color.WHITE else Color.BLACK)
 }
+

@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">BucketList</string>
+    <string name="goal_header">Goal</string>
+    <string name="notes_header">Notes</string>
+    <string name="progress_count">Progress: %1$d</string>
+    <string name="paused">Paused</string>
+    <string name="completed">Completed</string>
+    <string name="enter_progress_text">Enter Progress Text</string>
+    <string name="progress_dialog_title">Add Progress</string>
+    <string name="progress_dialog_positive">Add</string>
+    <string name="progress_dialog_negative">Cancel</string>
+    <string name="add_progress">Add progress\n</string>
+    <string name="new_goal">New Goal</string>
+    <string name="no_goal_text">"No Goals available "</string>
+    <string name="no_goals_available">NO Goal Available</string>
+    <string name="add_new_goal">Add New Goal</string>
+    <string name="share_goal">Share Goal</string>
+    <string name="goal_photo">Goal Photo</string>
+    <string name="take_photo_menu">Take Photo</string>
 </resources>
